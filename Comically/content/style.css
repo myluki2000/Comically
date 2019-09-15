@@ -1,0 +1,35 @@
+﻿body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: sans-serif;
+    position: fixed;
+}
+
+#header {
+    width: 100%;
+    padding: 5px;
+    background-color: rgb(25, 25, 25);
+    color: white;
+}
+
+#nav {
+    float: left;
+    height: 100%;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+#nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+#nav li:hover {
+    background-color: lightgray;
+}
+
+#main {
+    height: 100%;
+    overflow-y: auto;
+}

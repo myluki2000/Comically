@@ -1,0 +1,18 @@
+﻿@using Comically.data
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="content/style.css"/>
+    </head>
+    <body>
+        @Html.Partial("partials/header.cshtml")
+        @Html.Partial("partials/nav.cshtml")
+        <div id="main">
+            @foreach (Comic current in @Model)
+            {
+                <p>@current.Name</p>
+                <img src='data:image;base64, @current.CoverImage'/>
+            }
+        </div>
+    </body>
+</html>

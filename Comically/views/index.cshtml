@@ -1,18 +1,22 @@
-﻿@using Comically.data
+﻿@using Comically
+@using Comically.data
 
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="content/style.css"/>
-    </head>
+<head>
+    <title>Comically - Home</title>
+    <link rel="stylesheet" type="text/css" href="/content/style.css" />
+    <meta charset="utf-8">
+</head>
     <body>
         @Html.Partial("partials/header.cshtml")
-        @Html.Partial("partials/nav.cshtml")
+        @Html.Partial("partials/nav.cshtml", SitePages.HOME)
         <div id="main">
-            @foreach (Comic current in @Model)
-            {
-                <p>@current.Name</p>
-                <img src='data:image;base64, @current.CoverImage'/>
-            }
+            <div id="cards">
+                @foreach (Comic current in @Model)
+                {
+                    @Html.Partial("partials/card.cshtml", current)
+                }
+            </div>
         </div>
     </body>
 </html>

@@ -1,0 +1,8 @@
+﻿@using Nancy.Helpers
+
+<a href="/info/@Model.Id">
+    <div class="card">
+        <img src="data:image;base64, @Model.CoverImage" />
+        <span>@Model.Title</span>
+    </div>
+</a>

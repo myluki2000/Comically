@@ -20,6 +20,11 @@ namespace Comically
 
         static void Main(string[] args)
         {
+            Console.WriteLine("Beginning library scan...");
+            LibraryManager.ScanLibrary();
+            Console.WriteLine("Library scan complete.");
+
+
             using (NancyHost host = new NancyHost(new Uri(SERVER_URL), new DefaultNancyBootstrapper(), hostConfig))
             {
                 host.Start();

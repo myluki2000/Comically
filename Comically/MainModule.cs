@@ -5,6 +5,8 @@ using System.Runtime.Remoting.Messaging;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using Comically.data;
+using Nancy.ViewEngines.Razor;
 
 namespace Comically
 {
@@ -13,6 +15,11 @@ namespace Comically
         public MainModule()
         {
             Get("/", p => View["index.cshtml", LibraryManager.GetComics()]);
+            Get("/info/{id}", p =>
+            {
+                Comic c = LibraryManager.GetComicById(uint.Parse(p["id"]));
+                return View["info.cshtml", c];
+            });
         }
     }
 }

@@ -1,10 +1,11 @@
-﻿<div id="nav">
+﻿@using Comically
+<div id="nav">
     <ul>
-        <li>Home</li>
-        <li>Recently Updated</li>
-        <li>Recently Added</li>
-        <li>Unread</li>
-        <li>Top Ranked</li>
-        <li>Tags</li>
+        <li class='@(@Model == SitePages.HOME ? "active" : "")'>Home</li>
+        <li class='@(@Model == SitePages.RECENTLY_UPDATED ? "active" : "")'>Recently Updated</li>
+        <li class='@(@Model == SitePages.RECENTLY_ADDED ? "active" : "")'>Recently Added</li>
+        <li class='@(@Model == SitePages.UNREAD ? "active" : "")'>Unread</li>
+        <li class='@(@Model == SitePages.TOP_RANKED ? "active" : "")'>Top Ranked</li>
+        <li class='@(@Model == SitePages.TAGS ? "active" : "")'>Tags</li>
     </ul>
 </div>

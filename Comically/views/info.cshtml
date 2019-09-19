@@ -1,17 +1,37 @@
 ﻿@using Comically
 
 <html>
-    <head>
-        <title>Comically - Home</title>
-        <link rel="stylesheet" type="text/css" href="/content/style.css" />
-        <meta charset="utf-8">
-    </head>
-    <body>
-        @Html.Partial("partials/header.cshtml")
-        @Html.Partial("partials/nav.cshtml", SitePages.OTHER)
-        <div id="main">
-            <h1>@Model.Title</h1>
-            <img src="data:image;base64, @Model.CoverImage" />
+<head>
+    <title>Comically - Home</title>
+    <link rel="stylesheet" type="text/css" href="/content/style.css" />
+    <meta charset="utf-8">
+    <style type="text/css">
+        #content {
+            margin-top: 50px;
+        }
+
+        #cover {
+            margin-left: 50px;
+            float: left;
+            height: 400px;
+            width: 286px;
+        }
+
+        #title {
+            float: left;
+            margin-left: 50px;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    @Html.Partial("partials/header.cshtml")
+    @Html.Partial("partials/nav.cshtml", SitePages.OTHER)
+    <div id="main">
+        <div id="content">
+            <img src="data:image;base64, @Model.CoverImage" alt="@Model.Title cover" id="cover" />
+            <h2 id="title">@Model.Title</h2>
         </div>
-    </body>
+    </div>
+</body>
 </html>

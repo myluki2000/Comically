@@ -4,35 +4,44 @@
     margin: 0;
     font-family: sans-serif;
     position: fixed;
+    color: white;
+    background-image: url("/content/noise.png"), url("/content/bg.png");
+    background-size: auto, cover;
 }
 
 #header {
     width: 100%;
     padding: 5px;
-    background-color: rgb(25, 25, 25);
+    background-color: rgba(7, 7, 14, 0.9);
     color: white;
 }
 
 #nav {
     float: left;
     height: 100%;
-    margin-left: 5px;
-    margin-right: 10px;
+    background-color: rgba(0, 0, 20, 0.5);
+    width: 200px;
+    font-size: 0.8em;
+    font-weight: 400;
 }
 
 #nav ul {
     list-style: none;
-    padding: 0;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 #nav ul li {
     width: 100%;
+    box-sizing: border-box;
     padding-left: 5px;
     padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
 }
 
 #nav li:hover {
-    background-color: lightgray;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 #nav li.active {
@@ -41,6 +50,7 @@
 
 #main {
     height: 100%;
+    padding-left: 20px;
     overflow-y: auto;
 }
 

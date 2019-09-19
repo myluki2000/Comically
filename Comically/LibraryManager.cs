@@ -35,19 +35,7 @@ namespace Comically
                     else
                     {
                         // read comic info from db.bin
-                        using (Stream s = new FileStream(Path.Combine(comicPath, "db.bin"), FileMode.Open))
-                        {
-                            ComicInfo ci = (ComicInfo)new BinaryFormatter().Deserialize(s);
-                            comic.Id = ci.Id;
-
-                            if (comics.ContainsKey(comic.Id))
-                            {
-                                Console.Error.WriteLine("Multiple comics with the same id exist. Skipping one of them. Please fix your database.");
-                                continue;
-                            }
-
-                            comics.Add(comic.Id, comic);
-                        }
+                        ComicInfo ci =
                     }
                 }
                 else
@@ -65,11 +53,8 @@ namespace Comically
                 comic.Id = highestId;
                 comics.Add(comic.Id, comic);
 
-                // Serialize ComicInfo
-                using (Stream s = File.Open(Path.Combine(comic.ComicDirectory, "db.bin"), FileMode.Create))
-                {
-                    new BinaryFormatter().Serialize(s, ci);
-                }
+                // Save ComicInfo
+                ci.ToBinaryFile(Path.Combine(comic.ComicDirectory, "db.bin"));
             }
         }
         public static List<Comic> GetComics()

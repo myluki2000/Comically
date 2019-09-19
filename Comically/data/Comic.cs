@@ -10,8 +10,7 @@ namespace Comically.data
 {
     public class Comic
     {
-        public uint Id { get; set; }
-        public string Title { get; set; }
+        public ComicInfo ComicInfo { get; set; }
         public string ComicDirectory { get; set; }
 
         public string CoverImage

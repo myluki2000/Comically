@@ -9,10 +9,10 @@ namespace Comically.data
 {
     public class ComicInfo
     {
-        public uint Id { get; set; }
-        public string Title { get; set; }
-        public string Author { get; set; }
-        public string Summary { get; set; }
+        public uint Id { get; set; } = 0;
+        public string Title { get; set; } = "";
+        public string Author { get; set; } = "";
+        public string Summary { get; set; } = "";
         public List<uint> TagIds { get; set; } = new List<uint>();
 
         /// <summary>

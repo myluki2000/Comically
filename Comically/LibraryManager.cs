@@ -22,7 +22,7 @@ namespace Comically
             List<Comic> comicsToAddToDb = new List<Comic>();
             foreach (string comicPath in Directory.GetDirectories(LIBRARY_PATH))
             {
-                Comic comic = new Comic() { ComicDirectory = comicPath, Title = Path.GetFileName(comicPath) };
+                Comic comic = new Comic() { ComicDirectory = comicPath };
 
                 // search db.bin
                 string[] dbFiles = Directory.GetFiles(comicPath, "db.bin");
@@ -35,7 +35,22 @@ namespace Comically
                     else
                     {
                         // read comic info from db.bin
-                        ComicInfo ci =
+                        comic.ComicInfo = ComicInfo.FromBinary(Path.Combine(comicPath, "db.bin"));
+
+                        // safety check for comic id
+                        if (comic.ComicInfo.Id == 0)
+                        {
+                            Console.WriteLine("Broken id for comic '" + comic.ComicInfo.Title + "'");
+                        }
+
+                        // add comic to comics dictionary
+                        if (comics.ContainsKey(comic.ComicInfo.Id))
+                        {
+                            Console.Error.WriteLine("Multiple comics with the same id exist. Offender: '" + comic.ComicInfo.Title + "' ");
+                            continue;
+                        }
+
+                        comics.Add(comic.ComicInfo.Id, comic);
                     }
                 }
                 else
@@ -50,8 +65,8 @@ namespace Comically
             {
                 highestId++;
                 ComicInfo ci = new ComicInfo() {Id = highestId};
-                comic.Id = highestId;
-                comics.Add(comic.Id, comic);
+
+                comics.Add(comic.ComicInfo.Id, comic);
 
                 // Save ComicInfo
                 ci.ToBinaryFile(Path.Combine(comic.ComicDirectory, "db.bin"));

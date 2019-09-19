@@ -41,33 +41,6 @@ namespace Comically.data
             }
         }
 
-        private ComicMetadata metadata = null;
-
-        public ComicMetadata Metadata
-        {
-            get
-            {
-                if (metadata == null)
-                {
-                    // find and read metadata.xml
-                    string[] mdFiles = Directory.GetFiles(Path.Combine(ComicDirectory, "metadata.xml"));
-                    if (mdFiles.Length > 0)
-                    {
-                        using (StreamReader r = new StreamReader(mdFiles[0]))
-                        {
-                            metadata = (ComicMetadata) new XmlSerializer(typeof(ComicMetadata)).Deserialize(r);
-                        }
-                    }
-                    else
-                    {
-                        metadata = new ComicMetadata() {Title = "", Author = new Author() {Name = "Unknown"}, Summary = "", Tags = {}};
-                    }
-                }
-
-                return metadata;
-            }
-        }
-
         public List<Chapter> Chapters { get; set; }
     }
 }

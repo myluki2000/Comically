@@ -64,7 +64,11 @@ namespace Comically
             foreach (Comic comic in comicsToAddToDb)
             {
                 highestId++;
-                ComicInfo ci = new ComicInfo() {Id = highestId};
+                ComicInfo ci = new ComicInfo()
+                {
+                    Id = highestId,
+                    Title = Path.GetFileName(comic.ComicDirectory)
+                };
 
                 comics.Add(comic.ComicInfo.Id, comic);
 

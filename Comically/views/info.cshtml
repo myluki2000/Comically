@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>Comically - Home</title>
+    <title>Comically - @Model.ComicInfo.Title</title>
     <link rel="stylesheet" type="text/css" href="/content/style.css" />
     <meta charset="utf-8">
     <style type="text/css">
@@ -29,8 +29,8 @@
     @Html.Partial("partials/nav.cshtml", SitePages.OTHER)
     <div id="main">
         <div id="content">
-            <img src="data:image;base64, @Model.CoverImage" alt="@Model.Title cover" id="cover" />
-            <h2 id="title">@Model.Title</h2>
+            <img src="data:image;base64, @Model.CoverImage" alt="@Model.ComicInfo.Title cover" id="cover" />
+            <h2 id="title">@Model.ComicInfo.Title</h2>
         </div>
     </div>
 </body>

@@ -70,6 +70,8 @@ namespace Comically
                     Title = Path.GetFileName(comic.ComicDirectory)
                 };
 
+                comic.ComicInfo = ci;
+
                 comics.Add(comic.ComicInfo.Id, comic);
 
                 // Save ComicInfo

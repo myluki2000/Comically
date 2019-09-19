@@ -1,8 +1,8 @@
 ﻿@using Nancy.Helpers
 
-<a href="/info/@Model.Id">
+<a href="/info/@Model.ComicInfo.Id">
     <div class="card">
         <img src="data:image;base64, @Model.CoverImage" />
-        <span>@Model.Title</span>
+        <span>@Model.ComicInfo.Title</span>
     </div>
 </a>

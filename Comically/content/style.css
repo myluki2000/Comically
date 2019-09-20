@@ -57,13 +57,23 @@
 #cards {
     padding-bottom: 150px;
     display: flex;
-    justify-content: space-between;
+    justify-content: left;
     flex-wrap: wrap;
 }
 
 .card {
     width: 150px;
-    margin: 20px;
+    margin: 25px;
+}
+
+.card-title {
+    margin-top: 5px;
+    text-decoration: none;
+    color: white;
+}
+
+.card-title:hover {
+    text-decoration: underline;
 }
 
 .card img {

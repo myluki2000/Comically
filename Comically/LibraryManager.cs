@@ -78,14 +78,22 @@ namespace Comically
                 ci.ToBinaryFile(Path.Combine(comic.ComicDirectory, "db.bin"));
             }
         }
+
+        public static void SetComicInfo(uint comicId, ComicInfo newInfo)
+        {
+            Comic c = GetComicById(comicId);
+            c.ComicInfo = newInfo;
+            newInfo.ToBinaryFile(Path.Combine(LIBRARY_PATH, c.ComicDirectory, "db.bin"));
+        }
+
         public static List<Comic> GetComics()
         {
             return comics.Values.ToList();
         }
 
-        public static Comic GetComicById(uint id)
+        public static Comic GetComicById(uint comicId)
         {
-            return comics[id];
+            return comics[comicId];
         }
     }
 }

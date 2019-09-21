@@ -19,6 +19,22 @@ namespace Comically
                 Comic c = LibraryManager.GetComicById(uint.Parse(p["id"]));
                 return View["editmeta.cshtml", c];
             });
+
+            Get("/setmeta/{id}", p =>
+            {
+                ComicInfo newInfo = new ComicInfo()
+                {
+                    Id = uint.Parse(p["id"]),
+                    Title = Request.Query["title"],
+                    Author = Request.Query["author"],
+                    Summary = Request.Query["summary"],
+                    TagIds = null
+                };
+
+
+
+                return View["setmeta.cshtml"];
+            });
         }
     }
 }

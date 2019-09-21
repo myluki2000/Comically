@@ -111,6 +111,7 @@
     <None Include="views\partials\nav.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="views\setmeta.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -9,6 +9,20 @@
     background-size: auto, cover;
 }
 
+input[type=text] {
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+input[type=text]:focus {
+    color: black;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
 #header {
     width: 100%;
     padding: 5px;
@@ -61,9 +75,13 @@
     flex-wrap: wrap;
 }
 
+.card-outer-link {
+    text-decoration: none;
+    margin: 25px;
+}
+
 .card {
     width: 150px;
-    margin: 25px;
 }
 
 .card-title {

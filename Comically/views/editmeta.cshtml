@@ -1,0 +1,54 @@
+﻿@using Comically
+<html>
+<head>
+    <title>Comically - Edit @Model.ComicInfo.Title</title>
+    <link rel="stylesheet" type="text/css" href="/content/style.css" />
+    <meta charset="utf-8">
+    <style type="text/css">
+        input {
+            width: 100%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        form {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        #content {
+            margin-top: 50px;
+            margin-right: 20px;
+        }
+
+        #cover {
+            margin-left: 50px;
+            float: left;
+            height: 400px;
+            width: 286px;
+        }
+
+        #title {
+            float: left;
+            margin-left: 50px;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    @Html.Partial("partials/header.cshtml")
+    @Html.Partial("partials/nav.cshtml", SitePages.OTHER)
+
+    <div id="main">
+        <div id="content">
+            <form>
+                Title:<br /> 
+                <input type="text" name="title" value="@Model.ComicInfo.Title" /><br />
+
+                <button type="submit">Save</button>
+            </form>
+
+        </div>
+    </div>
+</body>
+</html>

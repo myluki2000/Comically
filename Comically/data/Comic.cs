@@ -41,6 +41,18 @@ namespace Comically.data
             }
         }
 
-        public List<Chapter> Chapters { get; set; }
+        public List<Chapter> Chapters
+        {
+            get
+            {
+                return Directory.GetDirectories(ComicDirectory).Select(chapterDir =>
+                {
+                    return new Chapter(Directory.GetFiles(chapterDir).ToList())
+                    {
+                        Title = Path.GetFileName(chapterDir)
+                    };
+                }).ToList();
+            }
+        }
     }
 }

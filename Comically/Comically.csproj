@@ -83,9 +83,9 @@
     <Compile Include="data\Chapter.cs" />
     <Compile Include="data\Comic.cs" />
     <Compile Include="data\ComicInfo.cs" />
-    <Compile Include="data\Page.cs" />
     <Compile Include="LibraryManager.cs" />
     <Compile Include="MainModule.cs" />
+    <Compile Include="models\CardModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SitePages.cs" />
@@ -111,7 +111,9 @@
     <None Include="views\partials\nav.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="views\setmeta.cshtml" />
+    <None Include="views\setmeta.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

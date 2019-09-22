@@ -1,5 +1,6 @@
 ﻿@using Comically
 @using Comically.data
+@using Comically.models
 
 <html>
 <head>
@@ -14,7 +15,7 @@
             <div id="cards">
                 @foreach (Comic current in @Model)
                 {
-                    @Html.Partial("partials/card.cshtml", current)
+                    @Html.Partial("partials/card.cshtml", new CardModel(current.ComicInfo.Title, current.CoverImage, "/info/" + current.ComicInfo.Id))
                 }
             </div>
         </div>

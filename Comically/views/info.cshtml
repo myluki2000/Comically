@@ -1,4 +1,6 @@
 ﻿@using Comically
+@using Comically.data
+@using Comically.models
 
 <html>
 <head>
@@ -18,9 +20,14 @@
         }
 
         #title {
-            float: left;
-            margin-left: 50px;
             margin-top: 0;
+        }
+
+        #right-column {
+            box-sizing: border-box;
+            padding-left: 50px;
+            float: left;
+            width: calc(100% - 286px - 50px);
         }
     </style>
 </head>
@@ -30,7 +37,18 @@
     <div id="main">
         <div id="content">
             <img src="data:image;base64, @Model.CoverImage" alt="@Model.ComicInfo.Title cover" id="cover" />
-            <h2 id="title">@Model.ComicInfo.Title</h2>
+            <div id="right-column">
+                <h2 id="title">@Model.ComicInfo.Title</h2>
+                <p id="author">@Model.ComicInfo.Author</p>
+                <p id="summary">@Model.ComicInfo.Summary</p>
+
+                <div id="cards">
+                    @foreach (Chapter chapter in @Model.Chapters)
+                    {
+                        @Html.Partial("partials/card.cshtml", new CardModel(@chapter.Title, @chapter.GetPage(0), ""))
+                    }
+                </div>
+            </div>
         </div>
     </div>
 </body>

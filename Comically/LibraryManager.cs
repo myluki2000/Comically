@@ -79,11 +79,9 @@ namespace Comically
             }
         }
 
-        public static void SetComicInfo(uint comicId, ComicInfo newInfo)
+        public static void WriteComicInfo(Comic comic)
         {
-            Comic c = GetComicById(comicId);
-            c.ComicInfo = newInfo;
-            newInfo.ToBinaryFile(Path.Combine(LIBRARY_PATH, c.ComicDirectory, "db.bin"));
+            comic.ComicInfo.ToBinaryFile(Path.Combine(comic.ComicDirectory, "db.bin"));
         }
 
         public static List<Comic> GetComics()

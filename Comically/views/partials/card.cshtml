@@ -1,8 +1,8 @@
 ﻿@using Nancy.Helpers
 
-<a href="/info/@Model.ComicInfo.Id" class="card-outer-link">
+<a href="@Model.LinkTarget" class="card-outer-link">
     <div class="card">
-        <img src="data:image;base64, @Model.CoverImage" />
-        <span class="card-title">@Model.ComicInfo.Title</span>
+        <img src="data:image;base64, @Model.Image" />
+        <span class="card-title">@Model.Title</span>
     </div>
 </a>

@@ -1,4 +1,5 @@
-﻿using Comically.data;
+﻿using System.Collections.Generic;
+using Comically.data;
 
 namespace Comically
 {
@@ -22,16 +23,13 @@ namespace Comically
 
             Get("/setmeta/{id}", p =>
             {
-                ComicInfo newInfo = new ComicInfo()
-                {
-                    Id = uint.Parse(p["id"]),
-                    Title = Request.Query["title"],
-                    Author = Request.Query["author"],
-                    Summary = Request.Query["summary"],
-                    TagIds = null
-                };
+                Comic c = LibraryManager.GetComicById(uint.Parse(p["id"]));
+                if (Request.Query["title"] != null) c.ComicInfo.Title = Request.Query["title"];
+                if (Request.Query["author"] != null) c.ComicInfo.Author = Request.Query["author"];
+                if (Request.Query["summary"] != null) c.ComicInfo.Summary = Request.Query["summary"];
+                // TODO: Implement tag editing
 
-
+                LibraryManager.WriteComicInfo(c);
 
                 return View["setmeta.cshtml"];
             });

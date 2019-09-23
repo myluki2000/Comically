@@ -83,6 +83,8 @@
     <Compile Include="data\Chapter.cs" />
     <Compile Include="data\Comic.cs" />
     <Compile Include="data\ComicInfo.cs" />
+    <Compile Include="data\Volume.cs" />
+    <Compile Include="ExtensionMethods.cs" />
     <Compile Include="LibraryManager.cs" />
     <Compile Include="MainModule.cs" />
     <Compile Include="models\CardModel.cs" />

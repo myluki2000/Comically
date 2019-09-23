@@ -27,31 +27,33 @@ namespace Comically.data
                 {
                     // return first image of comic otherwise
                     string[] volPaths = Directory.GetDirectories(ComicDirectory);
-                    if (volPaths.Length > 0)
-                    {
-                        string[] imgPaths = Directory.GetFiles(volPaths[0]);
-                        if (imgPaths.Length > 0)
-                        {
-                            return Convert.ToBase64String(File.ReadAllBytes(imgPaths[0]));
-                        }
-                    }
 
-                    return "";
+                    if (volPaths.Length <= 0) return "";
+
+                    string[] imgPaths = Directory.GetFiles(volPaths[0]);
+
+                    if (imgPaths.Length <= 0) return "";
+
+                    return Convert.ToBase64String(File.ReadAllBytes(imgPaths[0]));
+
                 }
             }
         }
 
-        public List<Chapter> Chapters
+        public List<Volume> Volumes
         {
             get
             {
-                return Directory.GetDirectories(ComicDirectory).Select(chapterDir =>
+                if (Directory.GetDirectories(ComicDirectory, "Volume ").Length > 0)
                 {
-                    return new Chapter(Directory.GetFiles(chapterDir).ToList())
-                    {
-                        Title = Path.GetFileName(chapterDir)
-                    };
-                }).ToList();
+                    // if volume directories exist read them
+                    return Directory.GetDirectories(ComicDirectory).Select(volDir => new Volume(volDir)).ToList();
+                }
+                else
+                {
+                    // if not create a "virtual" volume
+                    return new List<Volume>() { new Volume(ComicDirectory) };
+                }
             }
         }
     }

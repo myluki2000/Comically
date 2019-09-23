@@ -43,9 +43,19 @@
                 <p id="summary">@Model.ComicInfo.Summary</p>
 
                 <div id="cards">
-                    @foreach (Chapter chapter in @Model.Chapters)
+                    @if (Model.Volumes.Count > 1)
                     {
-                        @Html.Partial("partials/card.cshtml", new CardModel(@chapter.Title, @chapter.GetPage(0), ""))
+                        @foreach (Volume vol in @Model.Volumes)
+                        {
+                            @Html.Partial("partials/card.cshtml", new CardModel(@vol.Title, @vol.Chapters[0].GetPage(0), ""))
+                        }
+                    }
+                    else if(Model.Volumes.Count == 1)
+                    {
+                        @foreach (Chapter c in @Model.Volumes[0].Chapters)
+                        {
+                            @Html.Partial("partials/card.cshtml", new CardModel(@c.Title, @c.GetPage(0), ""))
+                        }
                     }
                 </div>
             </div>

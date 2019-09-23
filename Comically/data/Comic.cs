@@ -44,10 +44,11 @@ namespace Comically.data
         {
             get
             {
-                if (Directory.GetDirectories(ComicDirectory, "Volume ").Length > 0)
+                string[] vols = Directory.GetDirectories(ComicDirectory, "Volume ");
+                if (vols.Length > 0)
                 {
                     // if volume directories exist read them
-                    return Directory.GetDirectories(ComicDirectory).Select(volDir => new Volume(volDir)).ToList();
+                    return vols.Select(volDir => new Volume(volDir)).ToList();
                 }
                 else
                 {

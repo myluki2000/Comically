@@ -16,6 +16,11 @@ namespace Comically
             a.Sort(StrCmpLogicalW);
         }
 
+        public static void SortNaturally(this string[] a)
+        {
+            Array.Sort(a, StrCmpLogicalW);
+        }
+
         [DllImport("shlwapi.dll", CharSet = CharSet.Unicode)]
         private static extern int StrCmpLogicalW(string psz1, string psz2);
     }

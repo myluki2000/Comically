@@ -48,6 +48,7 @@ namespace Comically.data
                 if (vols.Length > 0)
                 {
                     // if volume directories exist read them
+                    vols.SortNaturally();
                     return vols.Select(volDir => new Volume(volDir)).ToList();
                 }
                 else

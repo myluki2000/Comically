@@ -23,11 +23,21 @@ namespace Comically.data
             }
         }
 
+        public string CoverPath { get; private set; }
+        public string CoverImage => Utility.FileToBase64(CoverPath);
+
         private readonly string volPath;
         public Volume(string path)
         {
             volPath = path;
             Title = Path.GetFileName(path);
+
+            FindCover();
+        }
+
+        private void FindCover()
+        {
+            CoverPath = Directory.GetFiles(Directory.GetDirectories(volPath)[0])[0];
         }
     }
 }

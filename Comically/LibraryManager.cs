@@ -14,7 +14,7 @@ namespace Comically
 {
     public static class LibraryManager
     {
-        private const string LIBRARY_PATH = "E:\\Manga_Lib";
+        public const string LIBRARY_PATH = "E:\\Manga_Lib";
         private static readonly Dictionary<uint, Comic> comics = new Dictionary<uint, Comic>();
 
         public static void ScanLibrary()
@@ -22,7 +22,7 @@ namespace Comically
             List<Comic> comicsToAddToDb = new List<Comic>();
             foreach (string comicPath in Directory.GetDirectories(LIBRARY_PATH))
             {
-                Comic comic = new Comic() { ComicDirectory = comicPath };
+                Comic comic = new Comic(comicPath);
 
                 // search db.bin
                 string[] dbFiles = Directory.GetFiles(comicPath, "db.bin");

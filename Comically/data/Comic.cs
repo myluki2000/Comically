@@ -44,7 +44,7 @@ namespace Comically.data
         {
             get
             {
-                string[] vols = Directory.GetDirectories(ComicDirectory, "Volume ");
+                string[] vols = Directory.GetDirectories(ComicDirectory, "Volume *");
                 if (vols.Length > 0)
                 {
                     // if volume directories exist read them

@@ -50,7 +50,7 @@
                             @Html.Partial("partials/card.cshtml", new CardModel(@vol.Title, @vol.Chapters[0].GetPage(0), ""))
                         }
                     }
-                    else if(Model.Volumes.Count == 1)
+                    else if (Model.Volumes.Count == 1)
                     {
                         @foreach (Chapter c in @Model.Volumes[0].Chapters)
                         {

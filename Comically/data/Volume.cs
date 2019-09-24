@@ -14,12 +14,11 @@ namespace Comically.data
         {
             get
             {
-                return Directory.GetDirectories(volPath).Select(chapterDir =>
+                string[] chapterPaths = Directory.GetDirectories(volPath);
+                chapterPaths.SortNaturally();
+                return chapterPaths.Select(chapterDir => new Chapter(Directory.GetFiles(chapterDir).ToList())
                 {
-                    return new Chapter(Directory.GetFiles(chapterDir).ToList())
-                    {
-                        Title = Path.GetFileName(chapterDir)
-                    };
+                    Title = Path.GetFileName(chapterDir)
                 }).ToList();
             }
         }
